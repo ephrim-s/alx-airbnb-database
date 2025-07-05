@@ -35,3 +35,20 @@ This query uses a **correlated subquery** to filter users based on how many book
 ## 📂 Files
 
 - `subqueries.sql` – Contains both the non-correlated and correlated subqueries.
+
+
+# Aggregations and Window Functions – ALX Airbnb Database
+
+This directory contains SQL scripts that demonstrate the use of aggregation and window functions in the context of an Airbnb-like application database.
+
+## 📊 Queries Included
+
+### 1. Total Bookings by User
+Uses the `COUNT` aggregate function and `GROUP BY` to display how many bookings each user has made.
+
+### 2. Property Ranking by Booking Count
+Ranks properties based on the number of bookings they've received using the `RANK()` window function.
+
+## 📂 Files
+
+- `aggregations_and_window_functions.sql` – Contains both aggregation and window function queries.
