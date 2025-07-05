@@ -19,3 +19,19 @@ This directory contains SQL scripts demonstrating the use of SQL joins on the Ai
 ## 📂 Files
 
 - `joins_queries.sql` – Contains all three join queries.
+
+# SQL Subqueries – ALX Airbnb Database
+
+This directory contains advanced SQL subquery examples designed for the Airbnb database schema.
+
+## 🔍 Queries Included
+
+### 1. Properties with Average Rating > 4.0
+This query uses a **non-correlated subquery** to find properties where the average user rating exceeds 4.0.
+
+### 2. Users with More Than 3 Bookings
+This query uses a **correlated subquery** to filter users based on how many bookings they have made. Only users with more than 3 bookings are returned.
+
+## 📂 Files
+
+- `subqueries.sql` – Contains both the non-correlated and correlated subqueries.
