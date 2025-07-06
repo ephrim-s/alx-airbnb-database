@@ -1,4 +1,4 @@
--- ✅ Initial Complex Query (with all joins)
+-- Initial Complex Query with WHERE and AND conditions
 EXPLAIN ANALYZE
 SELECT
     b.booking_id,
@@ -20,21 +20,22 @@ SELECT
 FROM Booking b
 JOIN User u ON b.user_id = u.user_id
 JOIN Property p ON b.property_id = p.property_id
-LEFT JOIN Payment pay ON b.booking_id = pay.booking_id;
+LEFT JOIN Payment pay ON b.booking_id = pay.booking_id
+WHERE b.status = 'confirmed'
+  AND b.start_date >= CURRENT_DATE - INTERVAL '30 days';
 
--- ✅ Optimized Query (assumes indexes already exist and avoids redundant selects)
--- Also useful if some columns are not needed by the frontend or API
+-- Refactored Optimized Query (example)
 EXPLAIN ANALYZE
 SELECT
     b.booking_id,
     b.start_date,
-    b.end_date,
     b.total_price,
-    b.status,
-    u.first_name || ' ' || u.last_name AS user_full_name,
+    u.first_name || ' ' || u.last_name AS user_name,
     p.name AS property_name,
     pay.amount
 FROM Booking b
 JOIN User u ON b.user_id = u.user_id
 JOIN Property p ON b.property_id = p.property_id
-LEFT JOIN Payment pay ON b.booking_id = pay.booking_id;
+LEFT JOIN Payment pay ON b.booking_id = pay.booking_id
+WHERE b.status = 'confirmed'
+  AND b.start_date >= CURRENT_DATE - INTERVAL '30 days';
